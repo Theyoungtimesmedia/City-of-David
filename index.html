@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <!-- Wrapper page title for your church (will remain constant) -->
+  <title>City Of David Area Parish — RCCG (Kwankwashe, Suleja)</title>
+
+  <meta name="description" content="City Of David Area Parish (RCCG) — Kwankwashe, Suleja. View the parish site inside this page." />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Inline favicon (loads instantly even on slow networks) -->
+  <link rel="icon" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="18" fill="%230064c8"/><path d="M50 22 v28" stroke="%23fff" stroke-width="6" stroke-linecap="round"/><path d="M36 44 h28" stroke="%23fff" stroke-width="6" stroke-linecap="round"/></svg>'>
+
+  <style>
+    /* Minimal inline CSS: loader + full-bleed iframe */
+    html,body{height:100%;width:100%;margin:0;padding:0;background:#071123;font-family:Inter,system-ui,Arial,sans-serif;color:#fff;overflow:hidden}
+    .loader{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:9999;background:linear-gradient(180deg,rgba(2,6,23,0.92),rgba(2,6,23,0.72));backdrop-filter:blur(4px)}
+    .box{display:flex;flex-direction:column;align-items:center;gap:14px}
+    .logo{width:72px;height:72px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0064c8,#00aaff);box-shadow:0 10px 30px rgba(0,0,0,.6)}
+    .logo svg{width:46px;height:46px}
+    .label{font-weight:700;letter-spacing:.2px;font-size:15px}
+    .pulse{position:relative;width:160px;height:160px}
+    .pulse::before,.pulse::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid rgba(255,255,255,0.06);animation:rg 1.4s infinite ease-out}
+    .pulse::after{animation-delay:.22s;transform:scale(.86);opacity:.85}
+    @keyframes rg{0%{transform:scale(.7);opacity:.14}50%{transform:scale(1);opacity:.04}100%{transform:scale(1.6);opacity:0}}
+    .hidden{opacity:0;pointer-events:none;transition:opacity .22s ease,transform .22s ease;transform:scale(.998)}
+    #frame{position:fixed;inset:0;width:100vw;height:100vh;border:0;z-index:0;background:transparent}
+  </style>
+</head>
+<body>
+  <!-- Loader overlay -->
+  <div id="loader" class="loader" aria-hidden="false">
+    <div class="box" role="status" aria-live="polite">
+      <div class="pulse" aria-hidden="true">
+        <div class="logo" aria-hidden="true">
+          <!-- simple inline logo icon -->
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="4" fill="white" opacity="0.06"/>
+            <path d="M12 6v8" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M9.5 11h5" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+      <div class="label">City Of David Area Parish</div>
+    </div>
+  </div>
+
+  <!-- Sandboxed iframe that opens your preview link.
+       The iframe is sandboxed so it cannot change the top address bar. -->
+  <iframe id="frame" title="City Of David Area Parish" loading="eager"
+    sandbox="allow-scripts allow-forms allow-same-origin"
+    referrerpolicy="no-referrer"></iframe>
+
+  <script>
+    (function(){
+      'use strict';
+      // TARGET: the page to show inside the iframe.
+      // (Hidden in the UI; the wrapper tab will never show it.)
+      const TARGET = 'https://readdy.link/preview/e8d48d2c-dffc-46f7-a7ca-385ff94c4649/2878783';
+
+      const iframe = document.getElementById('frame');
+      const loader = document.getElementById('loader');
+
+      // Aggressive immediate load to start fetching the page as fast as possible
+      try { iframe.src = TARGET; } catch (e) { iframe.src = TARGET; }
+
+      // When framed content loads, hide the loader smoothly
+      let loaded = false;
+      iframe.addEventListener('load', function(){
+        loaded = true;
+        requestAnimationFrame(function(){
+          loader.classList.add('hidden');
+          setTimeout(function(){ try{ loader.remove(); }catch(e){} }, 260);
+        });
+      }, {passive:true});
+
+      // On error or very slow networks, remove loader after a short timeout
+      iframe.addEventListener('error', function(){ if(!loaded){ loader.classList.add('hidden'); try{ loader.remove(); }catch(e){} } }, {passive:true});
+      setTimeout(function(){ if(!loaded){ loader.classList.add('hidden'); try{ loader.remove(); }catch(e){} } }, 2200);
+
+      // Defensive: ignore postMessages from framed site (prevent it from controlling parent)
+      window.addEventListener('message', function(){ /* no-op */ }, false);
+    })();
+  </script>
+</body>
+</html>
